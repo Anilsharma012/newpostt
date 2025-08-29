@@ -5,7 +5,7 @@ import { connectToDatabase } from './utils/database';
 import { seedDatabase } from './utils/seedData';
 
 // Controllers
-import { register, login, logout, getProfile } from './controllers/auth';
+import { register, login, logout, getProfile, updateProfile } from './controllers/auth';
 import { 
   getListings, 
   getListing, 
