@@ -36,6 +36,10 @@ function Router() {
       <Route path="/admin/dashboard" component={AdminDashboard} />
       <Route path="/admin/ads" component={AdsManagement} />
       <Route path="/admin/users" component={UsersManagement} />
+      <Route path="/admin/packages" component={React.lazy(() => import('@/pages/admin/packages'))} />
+      <Route path="/admin/pages" component={React.lazy(() => import('@/pages/admin/pages'))} />
+      <Route path="/admin/banners" component={React.lazy(() => import('@/pages/admin/banners'))} />
+      <Route path="/admin/promotions" component={React.lazy(() => import('@/pages/admin/promotions'))} />
       {/* CMS Pages */}
       <Route path="/about" component={AboutPage} />
       <Route path="/contact" component={ContactPage} />
