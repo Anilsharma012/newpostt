@@ -14,7 +14,7 @@ import {
   deleteListing,
   getFeaturedListings
 } from './controllers/listings';
-import { getCategories, getSubcategories } from './controllers/categories';
+import { getCategories, getSubcategories, createCategory, updateCategory, deleteCategory, createSubcategory, updateSubcategory, deleteSubcategory } from './controllers/categories';
 import { getDashboardStats, updateListingStatus } from './controllers/admin';
 import { dbHealth } from './controllers/health';
 import { listPackages, createPackage, updatePackage, deletePackage, listPriceRules, createPriceRule, updatePriceRule, deletePriceRule } from './controllers/packages';
@@ -89,6 +89,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.put('/api/admin/banners/:id', authenticate, requireAdmin, updateBanner);
   app.delete('/api/admin/banners/:id', authenticate, requireAdmin, deleteBanner);
   app.post('/api/admin/listings/moderate', authenticate, requireAdmin, updateListingStatus);
+  // Admin categories
+  app.post('/api/admin/categories', authenticate, requireAdmin, createCategory);
+  app.put('/api/admin/categories/:id', authenticate, requireAdmin, updateCategory);
+  app.delete('/api/admin/categories/:id', authenticate, requireAdmin, deleteCategory);
+  app.post('/api/admin/subcategories', authenticate, requireAdmin, createSubcategory);
+  app.put('/api/admin/subcategories/:id', authenticate, requireAdmin, updateSubcategory);
+  app.delete('/api/admin/subcategories/:id', authenticate, requireAdmin, deleteSubcategory);
 
   const httpServer = createServer(app);
   return httpServer;
