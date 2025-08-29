@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI || 
-  'mongodb+srv://satyakachatgpt_db_user:ANILSHARMA12@cluster0.1pgdsl0.mongodb.net/posttrr';
+const MONGODB_URI = process.env.MONGODB_URI ||
+  'mongodb+srv://satyakachatgpt_db_user:ANILSHARMA12@cluster0.1pgdsl0.mongodb.net/';
 
 let isConnected = false;
 

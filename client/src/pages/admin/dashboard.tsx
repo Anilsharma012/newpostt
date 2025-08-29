@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Users, FileText, TrendingUp, Eye, CheckCircle, Clock, XCircle } from 'lucide-react';
 import { useLocation } from 'wouter';
+import { BackNav } from '@/components/BackNav';
 
 export default function AdminDashboard() {
   const { user } = useAuth();
@@ -51,6 +52,7 @@ export default function AdminDashboard() {
         <main className="flex-1 p-8">
           <div className="max-w-7xl mx-auto">
             <div className="mb-8">
+              <BackNav />
               <h1 className="text-3xl font-bold text-foreground mb-2" data-testid="text-dashboard-title">
                 Admin Dashboard
               </h1>

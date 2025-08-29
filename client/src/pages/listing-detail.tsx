@@ -9,6 +9,7 @@ import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Heart, MessageCircle, Flag, Eye, MapPin, Calendar, Tag } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { BottomNav } from '@/components/BottomNav';
 
 export default function ListingDetail() {
   const { id } = useParams<{ id: string }>();
@@ -88,9 +89,9 @@ export default function ListingDetail() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-20">
       <Header />
-      
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
@@ -256,6 +257,7 @@ export default function ListingDetail() {
         </div>
       </main>
 
+      <BottomNav />
       <Footer />
     </div>
   );

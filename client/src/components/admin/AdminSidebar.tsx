@@ -1,18 +1,15 @@
 import { Link, useLocation } from 'wouter';
 import { useAuth } from '@/contexts/AuthContext';
 import { cn } from '@/lib/utils';
-import { 
-  LayoutDashboard, 
-  FileText, 
-  Users, 
-  Settings, 
-  Tag, 
-  MapPin, 
-  Flag, 
-  Bell, 
-  BarChart,
+import {
+  LayoutDashboard,
+  FileText,
+  Users,
+  Tag,
   LogOut,
-  Home
+  Home,
+  Image,
+  Star
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -38,30 +35,25 @@ const sidebarItems = [
     icon: Tag
   },
   {
-    title: 'Locations',
-    href: '/admin/locations',
-    icon: MapPin
+    title: 'Packages & Pricing',
+    href: '/admin/packages',
+    icon: Tag
   },
   {
-    title: 'Reports',
-    href: '/admin/reports',
-    icon: Flag
+    title: 'Pages',
+    href: '/admin/pages',
+    icon: FileText
   },
   {
-    title: 'Notifications',
-    href: '/admin/notifications',
-    icon: Bell
+    title: 'Banners & Sliders',
+    href: '/admin/banners',
+    icon: Image
   },
   {
-    title: 'Analytics',
-    href: '/admin/analytics',
-    icon: BarChart
+    title: 'Promotions',
+    href: '/admin/promotions',
+    icon: Star
   },
-  {
-    title: 'Settings',
-    href: '/admin/settings',
-    icon: Settings
-  }
 ];
 
 export function AdminSidebar() {

@@ -1,5 +1,7 @@
 import { Category } from '../models/Category';
 import { User } from '../models/User';
+import { Page } from '../models/Page';
+import { LocationCity, LocationArea } from '../models/Location';
 import { Package } from '../models/Package';
 
 export async function seedDatabase() {
@@ -79,6 +81,31 @@ export async function seedDatabase() {
         { upsert: true }
       );
     }
+
+    // Seed pages
+    const pages = [
+      { title: 'About Us', slug: 'about', content: 'About Posttrr', isActive: true },
+      { title: 'Contact Us', slug: 'contact', content: 'Contact Posttrr', isActive: true },
+      { title: 'FAQ', slug: 'faq', content: 'Frequently Asked Questions', isActive: true },
+      { title: 'Blog', slug: 'blog', content: 'Our blog posts', isActive: true },
+      { title: 'Privacy Policy', slug: 'privacy', content: 'Privacy content', isActive: true },
+      { title: 'Terms of Service', slug: 'terms', content: 'Terms content', isActive: true },
+    ];
+    for (const p of pages) {
+      await Page.findOneAndUpdate({ slug: p.slug }, p, { upsert: true });
+    }
+
+    // Seed locations (sample)
+    const city = await LocationCity.findOneAndUpdate(
+      { slug: 'delhi' },
+      { name: 'Delhi', slug: 'delhi', state: 'Delhi' },
+      { upsert: true, new: true }
+    );
+    await LocationArea.findOneAndUpdate(
+      { slug: 'connaught-place' },
+      { cityId: city._id, name: 'Connaught Place', slug: 'connaught-place', pincode: '110001' },
+      { upsert: true }
+    );
 
     console.log('Database seeded successfully');
   } catch (error) {

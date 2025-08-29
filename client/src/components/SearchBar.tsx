@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -13,10 +13,8 @@ export function SearchBar() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const params = new URLSearchParams();
-    
     if (searchQuery) params.set('search', searchQuery);
     if (selectedCategory) params.set('category', selectedCategory);
-    
     setLocation(`/listings${params.toString() ? `?${params.toString()}` : ''}`);
   };
 
@@ -36,9 +34,7 @@ export function SearchBar() {
           <SelectItem value="jobs">Jobs</SelectItem>
         </SelectContent>
       </Select>
-      
       <div className="w-px bg-border"></div>
-      
       <Input
         type="text"
         placeholder="Search 'Furniture'"
@@ -47,13 +43,9 @@ export function SearchBar() {
         className="flex-1 border-0 rounded-none focus-visible:ring-2 focus-visible:ring-primary"
         data-testid="input-search"
       />
-      
-      <Button 
-        type="submit"
-        className="bg-primary hover:bg-primary/90 text-white rounded-none px-6"
-        data-testid="button-search"
-      >
-        <Search className="w-4 h-4" />
+      <Button type="submit" className="rounded-none" data-testid="button-search">
+        <Search className="w-4 h-4 mr-2" />
+        Search
       </Button>
     </form>
   );

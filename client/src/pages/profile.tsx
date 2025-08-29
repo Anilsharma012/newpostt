@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { useAuth } from '@/contexts/AuthContext';
 import { Header } from '@/components/Header';
@@ -132,7 +132,7 @@ export default function Profile() {
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Total Views</span>
                     <span className="font-semibold" data-testid="text-total-views">
-                      {myListings.reduce((sum: number, listing: any) => sum + listing.views, 0)}
+                      {myListings.reduce((sum: number, listing: any) => sum + Number(listing?.views ?? 0), 0)}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
