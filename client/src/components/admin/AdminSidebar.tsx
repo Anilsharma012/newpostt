@@ -12,7 +12,9 @@ import {
   Bell, 
   BarChart,
   LogOut,
-  Home
+  Home,
+  Image,
+  Star
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
