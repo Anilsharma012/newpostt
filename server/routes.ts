@@ -66,6 +66,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Admin routes
   app.get('/api/admin/dashboard', authenticate, requireAdmin, getDashboardStats);
+  app.get('/api/admin/users', authenticate, requireAdmin, listUsers);
+  app.put('/api/admin/users/:id', authenticate, requireAdmin, updateUser);
   app.put('/api/admin/listings/:id', authenticate, requireAdmin, updateListingStatus);
   app.post('/api/admin/packages', authenticate, requireAdmin, createPackage);
   app.put('/api/admin/packages/:id', authenticate, requireAdmin, updatePackage);
