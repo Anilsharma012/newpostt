@@ -84,6 +84,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post('/api/admin/pages', authenticate, requireAdmin, createPage);
   app.put('/api/admin/pages/:id', authenticate, requireAdmin, updatePage);
   app.delete('/api/admin/pages/:id', authenticate, requireAdmin, deletePage);
+  app.get('/api/admin/banners', authenticate, requireAdmin, listBanners);
+  app.post('/api/admin/banners', authenticate, requireAdmin, createBanner);
+  app.put('/api/admin/banners/:id', authenticate, requireAdmin, updateBanner);
+  app.delete('/api/admin/banners/:id', authenticate, requireAdmin, deleteBanner);
   app.post('/api/admin/listings/moderate', authenticate, requireAdmin, updateListingStatus);
 
   const httpServer = createServer(app);
