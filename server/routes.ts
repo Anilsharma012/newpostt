@@ -21,6 +21,7 @@ import { getCities, getAreas } from './controllers/locations';
 import { listPages, getPageBySlug, createPage, updatePage, deletePage } from './controllers/pages';
 import { openChat, getMessages } from './controllers/chats';
 import { checkout, webhook } from './controllers/orders';
+import { listUsers, updateUser } from './controllers/adminUsers';
 
 // Middleware
 import { authenticate, requireAdmin } from './middleware/auth';
