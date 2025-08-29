@@ -38,6 +38,26 @@ const sidebarItems = [
     icon: Tag
   },
   {
+    title: 'Packages & Pricing',
+    href: '/admin/packages',
+    icon: Tag
+  },
+  {
+    title: 'Pages',
+    href: '/admin/pages',
+    icon: FileText
+  },
+  {
+    title: 'Banners & Sliders',
+    href: '/admin/banners',
+    icon: Image
+  },
+  {
+    title: 'Promotions',
+    href: '/admin/promotions',
+    icon: Star
+  },
+  {
     title: 'Locations',
     href: '/admin/locations',
     icon: MapPin
