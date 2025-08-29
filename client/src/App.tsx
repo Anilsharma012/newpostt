@@ -15,6 +15,10 @@ import Profile from "@/pages/profile";
 import AdminDashboard from "@/pages/admin/dashboard";
 import AdsManagement from "@/pages/admin/ads-management";
 import UsersManagement from "@/pages/admin/users-management";
+import AdminLogin from "@/pages/admin/login";
+import Subscription from "@/pages/subscription";
+import Dashboard from "@/pages/dashboard";
+import { AboutPage, ContactPage, FAQPage, BlogPage, PrivacyPage, TermsPage } from "@/pages/page";
 
 function Router() {
   return (
