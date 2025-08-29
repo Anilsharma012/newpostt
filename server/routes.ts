@@ -24,6 +24,7 @@ import { openChat, getMessages, listThreads, sendMessage } from './controllers/c
 import { checkout, webhook } from './controllers/orders';
 import { listUsers, updateUser } from './controllers/adminUsers';
 import { listBanners, createBanner, updateBanner, deleteBanner } from './controllers/banners';
+import { listNotifications, markRead, createNotification } from './controllers/notifications';
 
 // Middleware
 import { authenticate, requireAdmin } from './middleware/auth';
@@ -71,6 +72,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post('/api/chats/:id/messages', authenticate, sendMessage);
   app.post('/api/orders/checkout', authenticate, checkout);
   app.post('/api/orders/webhook', webhook);
+  // Notifications
+  app.get('/api/notifications', authenticate, listNotifications);
+  app.post('/api/notifications/:id/read', authenticate, markRead);
+  app.post('/api/admin/notifications', authenticate, requireAdmin, createNotification);
 
   // Admin routes
   app.get('/api/admin/dashboard', authenticate, requireAdmin, getDashboardStats);
