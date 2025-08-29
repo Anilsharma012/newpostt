@@ -16,6 +16,7 @@ import {
 } from './controllers/listings';
 import { getCategories, getSubcategories } from './controllers/categories';
 import { getDashboardStats, updateListingStatus } from './controllers/admin';
+import { dbHealth } from './controllers/health';
 import { listPackages, createPackage, updatePackage, deletePackage, listPriceRules, createPriceRule, updatePriceRule, deletePriceRule } from './controllers/packages';
 import { getCities, getAreas } from './controllers/locations';
 import { listPages, getPageBySlug, createPage, updatePage, deletePage } from './controllers/pages';
