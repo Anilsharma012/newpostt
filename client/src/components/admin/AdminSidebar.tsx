@@ -1,16 +1,11 @@
 import { Link, useLocation } from 'wouter';
 import { useAuth } from '@/contexts/AuthContext';
 import { cn } from '@/lib/utils';
-import { 
-  LayoutDashboard, 
-  FileText, 
-  Users, 
-  Settings, 
-  Tag, 
-  MapPin, 
-  Flag, 
-  Bell, 
-  BarChart,
+import {
+  LayoutDashboard,
+  FileText,
+  Users,
+  Tag,
   LogOut,
   Home,
   Image,
