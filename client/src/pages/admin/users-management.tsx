@@ -12,6 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 import { apiRequest, queryClient } from '@/lib/queryClient';
 import { Shield, ShieldCheck, Ban, Mail, Phone, Calendar } from 'lucide-react';
 import { useLocation } from 'wouter';
+import { BackNav } from '@/components/BackNav';
 
 export default function UsersManagement() {
   const { user } = useAuth();
@@ -102,6 +103,7 @@ export default function UsersManagement() {
         <main className="flex-1 p-8">
           <div className="max-w-7xl mx-auto">
             <div className="mb-8">
+              <BackNav />
               <h1 className="text-3xl font-bold text-foreground mb-2" data-testid="text-users-management-title">
                 Users Management
               </h1>
