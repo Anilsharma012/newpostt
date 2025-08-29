@@ -26,6 +26,15 @@ const analyticsSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
+const notificationSchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  title: { type: String, required: true },
+  message: { type: String, required: true },
+  isRead: { type: Boolean, default: false },
+  createdAt: { type: Date, default: Date.now }
+});
+
 export const Order = mongoose.model('Order', orderSchema);
 export const Report = mongoose.model('Report', reportSchema);
 export const Analytics = mongoose.model('Analytics', analyticsSchema);
+export const Notification = mongoose.model('Notification', notificationSchema);
