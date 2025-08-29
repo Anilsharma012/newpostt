@@ -81,3 +81,16 @@ export const getProfile = async (req: AuthRequest, res: Response) => {
     res.status(400).json({ message: error.message });
   }
 };
+
+export const updateProfile = async (req: AuthRequest, res: Response) => {
+  try {
+    const updates: any = {};
+    if ('name' in req.body) updates.name = req.body.name;
+    if ('phone' in req.body) updates.phone = req.body.phone;
+    if ('avatar' in req.body) updates.avatar = req.body.avatar;
+    const user = await User.findByIdAndUpdate(req.user._id, updates, { new: true }).select('-password');
+    res.json(user);
+  } catch (error: any) {
+    res.status(400).json({ message: error.message });
+  }
+};
