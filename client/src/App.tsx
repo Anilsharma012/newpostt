@@ -41,6 +41,7 @@ function Router() {
       <Route path="/chat" component={ChatPage} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/subscription" component={Subscription} />
+      <Route path="/notifications" component={NotificationsPage} />
       <Route path="/admin/login" component={AdminLogin} />
       <Route path="/admin/dashboard" component={AdminDashboard} />
       <Route path="/admin/ads" component={AdsManagement} />
