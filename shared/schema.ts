@@ -108,6 +108,53 @@ export const packageSchema = z.object({
   createdAt: z.date().default(() => new Date())
 });
 
+export const priceRuleSchema = z.object({
+  _id: z.string(),
+  scope: z.enum(['category', 'city', 'area']),
+  refId: z.string(),
+  packageId: z.string(),
+  price: z.number(),
+});
+
+// Locations
+export const locationCitySchema = z.object({
+  _id: z.string(),
+  name: z.string(),
+  slug: z.string(),
+  state: z.string(),
+});
+
+export const locationAreaSchema = z.object({
+  _id: z.string(),
+  cityId: z.string(),
+  name: z.string(),
+  slug: z.string(),
+  pincode: z.string().optional(),
+});
+
+// Pages
+export const pageSchema = z.object({
+  _id: z.string(),
+  title: z.string(),
+  slug: z.string(),
+  content: z.string(),
+  isActive: z.boolean().default(true),
+  createdAt: z.date().default(() => new Date()),
+  updatedAt: z.date().default(() => new Date()),
+});
+
+// Orders
+export const orderSchema = z.object({
+  _id: z.string(),
+  userId: z.string(),
+  packageId: z.string(),
+  price: z.number(),
+  cityId: z.string().optional(),
+  areaId: z.string().optional(),
+  status: z.enum(['paid','pending']).default('paid'),
+  createdAt: z.date().default(() => new Date()),
+});
+
 // Chat schemas
 export const chatThreadSchema = z.object({
   _id: z.string(),
@@ -141,5 +188,10 @@ export type Listing = z.infer<typeof listingSchema>;
 export type InsertListing = z.infer<typeof insertListingSchema>;
 
 export type Package = z.infer<typeof packageSchema>;
+export type PriceRule = z.infer<typeof priceRuleSchema>;
+export type LocationCity = z.infer<typeof locationCitySchema>;
+export type LocationArea = z.infer<typeof locationAreaSchema>;
+export type Page = z.infer<typeof pageSchema>;
+export type Order = z.infer<typeof orderSchema>;
 export type ChatThread = z.infer<typeof chatThreadSchema>;
 export type ChatMessage = z.infer<typeof chatMessageSchema>;
