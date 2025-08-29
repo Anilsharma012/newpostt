@@ -35,6 +35,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Middleware
   app.use(cookieParser());
 
+  // Health
+  app.get('/health/db', dbHealth);
+
   // Auth routes
   app.post('/api/auth/register', register);
   app.post('/api/auth/login', login);
