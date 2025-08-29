@@ -20,6 +20,7 @@ import Subscription from "@/pages/subscription";
 import Dashboard from "@/pages/dashboard";
 import { AboutPage, ContactPage, FAQPage, BlogPage, PrivacyPage, TermsPage } from "@/pages/page";
 
+import React from 'react';
 function Router() {
   return (
     <Switch>
