@@ -3,6 +3,7 @@ import { Footer } from '@/components/Footer';
 import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLocation } from 'wouter';
+import { BackNav } from '@/components/BackNav';
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -17,6 +18,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="md:col-span-3"><BackNav /></div>
         <Card>
           <CardHeader><CardTitle>My Ads</CardTitle></CardHeader>
           <CardContent>Manage your listings.</CardContent>
