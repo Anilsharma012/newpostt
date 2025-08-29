@@ -16,6 +16,11 @@ import AdminDashboard from "@/pages/admin/dashboard";
 import AdsManagement from "@/pages/admin/ads-management";
 import UsersManagement from "@/pages/admin/users-management";
 import AdminLogin from "@/pages/admin/login";
+import AdminPackages from "@/pages/admin/packages";
+import AdminPages from "@/pages/admin/pages";
+import AdminBanners from "@/pages/admin/banners";
+import AdminPromotions from "@/pages/admin/promotions";
+import AdminCategories from "@/pages/admin/categories";
 import Subscription from "@/pages/subscription";
 import Dashboard from "@/pages/dashboard";
 import { AboutPage, ContactPage, FAQPage, BlogPage, PrivacyPage, TermsPage } from "@/pages/page";
@@ -37,11 +42,11 @@ function Router() {
       <Route path="/admin/dashboard" component={AdminDashboard} />
       <Route path="/admin/ads" component={AdsManagement} />
       <Route path="/admin/users" component={UsersManagement} />
-      <Route path="/admin/packages" component={React.lazy(() => import('@/pages/admin/packages'))} />
-      <Route path="/admin/pages" component={React.lazy(() => import('@/pages/admin/pages'))} />
-      <Route path="/admin/banners" component={React.lazy(() => import('@/pages/admin/banners'))} />
-      <Route path="/admin/promotions" component={React.lazy(() => import('@/pages/admin/promotions'))} />
-      <Route path="/admin/categories" component={React.lazy(() => import('@/pages/admin/categories'))} />
+      <Route path="/admin/packages" component={AdminPackages} />
+      <Route path="/admin/pages" component={AdminPages} />
+      <Route path="/admin/banners" component={AdminBanners} />
+      <Route path="/admin/promotions" component={AdminPromotions} />
+      <Route path="/admin/categories" component={AdminCategories} />
       {/* CMS Pages */}
       <Route path="/about" component={AboutPage} />
       <Route path="/contact" component={ContactPage} />
