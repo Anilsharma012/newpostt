@@ -59,31 +59,6 @@ const sidebarItems = [
     href: '/admin/promotions',
     icon: Star
   },
-  {
-    title: 'Locations',
-    href: '/admin/locations',
-    icon: MapPin
-  },
-  {
-    title: 'Reports',
-    href: '/admin/reports',
-    icon: Flag
-  },
-  {
-    title: 'Notifications',
-    href: '/admin/notifications',
-    icon: Bell
-  },
-  {
-    title: 'Analytics',
-    href: '/admin/analytics',
-    icon: BarChart
-  },
-  {
-    title: 'Settings',
-    href: '/admin/settings',
-    icon: Settings
-  }
 ];
 
 export function AdminSidebar() {
