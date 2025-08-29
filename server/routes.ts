@@ -23,6 +23,7 @@ import { listPages, getPageBySlug, createPage, updatePage, deletePage } from './
 import { openChat, getMessages } from './controllers/chats';
 import { checkout, webhook } from './controllers/orders';
 import { listUsers, updateUser } from './controllers/adminUsers';
+import { listBanners, createBanner, updateBanner, deleteBanner } from './controllers/banners';
 
 // Middleware
 import { authenticate, requireAdmin } from './middleware/auth';
