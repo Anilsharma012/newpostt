@@ -1,3 +1,5 @@
+import { User } from '../models/User';
+
 export const listUsers = async (req: Request, res: Response) => {
   const { search = '', role = '', verified = '', page = '1', limit = '20' } = req.query as Record<string,string>;
   const filter: any = {};
