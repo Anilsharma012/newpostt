@@ -6,6 +6,7 @@ import { ListingCard } from '@/components/ListingCard';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'wouter';
+import { BottomNav } from '@/components/BottomNav';
 
 export default function Home() {
   const { data: categories = [] } = useQuery({
@@ -23,7 +24,7 @@ export default function Home() {
   const recentListings = (recentListingsData as any)?.listings || [];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-20">
       <Header />
       
       <main>
@@ -183,6 +184,7 @@ export default function Home() {
         </section>
       </main>
 
+      <BottomNav />
       <Footer />
     </div>
   );

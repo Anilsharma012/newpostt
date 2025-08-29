@@ -10,6 +10,8 @@ import Login from "@/pages/login";
 import Register from "@/pages/register";
 import Listings from "@/pages/listings";
 import ListingDetail from "@/pages/listing-detail";
+import CategoriesPage from "@/pages/categories";
+import CMSPage from "@/pages/cms";
 import ChatPage from "@/pages/chat";
 import PostAd from "@/pages/post-ad";
 import Profile from "@/pages/profile";
@@ -36,13 +38,17 @@ function Router() {
       <Route path="/register" component={Register} />
       <Route path="/listings" component={Listings} />
       <Route path="/listing/:id" component={ListingDetail} />
+      <Route path="/categories" component={CategoriesPage} />
+      <Route path="/pages/:slug" component={CMSPage} />
       <Route path="/post-ad" component={PostAd} />
+      <Route path="/create" component={PostAd} />
       <Route path="/profile" component={Profile} />
       <Route path="/chat" component={ChatPage} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/subscription" component={Subscription} />
       <Route path="/notifications" component={NotificationsPage} />
       <Route path="/admin/login" component={AdminLogin} />
+      <Route path="/admin" component={AdminDashboard} />
       <Route path="/admin/dashboard" component={AdminDashboard} />
       <Route path="/admin/ads" component={AdsManagement} />
       <Route path="/admin/users" component={UsersManagement} />
