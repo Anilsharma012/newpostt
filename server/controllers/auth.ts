@@ -75,7 +75,7 @@ export const logout = async (req: Request, res: Response) => {
 
 export const getProfile = async (req: AuthRequest, res: Response) => {
   try {
-    const user = await User.findById(req.user.id).select('-password');
+    const user = await User.findById(req.user.id || req.user._id).select('-password');
     res.json(user);
   } catch (error: any) {
     res.status(400).json({ message: error.message });

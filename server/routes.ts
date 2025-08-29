@@ -16,6 +16,11 @@ import {
 } from './controllers/listings';
 import { getCategories, getSubcategories } from './controllers/categories';
 import { getDashboardStats, updateListingStatus } from './controllers/admin';
+import { listPackages, createPackage, updatePackage, deletePackage, listPriceRules, createPriceRule, updatePriceRule, deletePriceRule } from './controllers/packages';
+import { getCities, getAreas } from './controllers/locations';
+import { listPages, getPageBySlug, createPage, updatePage, deletePage } from './controllers/pages';
+import { openChat, getMessages } from './controllers/chats';
+import { checkout, webhook } from './controllers/orders';
 
 // Middleware
 import { authenticate, requireAdmin } from './middleware/auth';
@@ -33,22 +38,44 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post('/api/auth/login', login);
   app.post('/api/auth/logout', logout);
   app.get('/api/auth/profile', authenticate, getProfile);
+  app.get('/api/auth/me', authenticate, getProfile);
 
   // Public routes
   app.get('/api/categories', getCategories);
   app.get('/api/categories/:categoryId/subcategories', getSubcategories);
+  app.get('/api/subcategories', getSubcategories);
   app.get('/api/listings', getListings);
   app.get('/api/listings/featured', getFeaturedListings);
   app.get('/api/listings/:id', getListing);
+  app.get('/api/packages', listPackages);
+  app.get('/api/pricing/rules', listPriceRules);
+  app.get('/api/locations/cities', getCities);
+  app.get('/api/locations/areas', getAreas);
+  app.get('/api/pages', listPages);
+  app.get('/api/pages/:slug', getPageBySlug);
 
   // Protected routes
   app.post('/api/listings', authenticate, createListing);
   app.put('/api/listings/:id', authenticate, updateListing);
   app.delete('/api/listings/:id', authenticate, deleteListing);
+  app.post('/api/chats/open', authenticate, openChat);
+  app.get('/api/chats/:id/messages', authenticate, getMessages);
+  app.post('/api/orders/checkout', authenticate, checkout);
+  app.post('/api/orders/webhook', webhook);
 
   // Admin routes
   app.get('/api/admin/dashboard', authenticate, requireAdmin, getDashboardStats);
   app.put('/api/admin/listings/:id', authenticate, requireAdmin, updateListingStatus);
+  app.post('/api/admin/packages', authenticate, requireAdmin, createPackage);
+  app.put('/api/admin/packages/:id', authenticate, requireAdmin, updatePackage);
+  app.delete('/api/admin/packages/:id', authenticate, requireAdmin, deletePackage);
+  app.post('/api/admin/pricing/rules', authenticate, requireAdmin, createPriceRule);
+  app.put('/api/admin/pricing/rules/:id', authenticate, requireAdmin, updatePriceRule);
+  app.delete('/api/admin/pricing/rules/:id', authenticate, requireAdmin, deletePriceRule);
+  app.post('/api/admin/pages', authenticate, requireAdmin, createPage);
+  app.put('/api/admin/pages/:id', authenticate, requireAdmin, updatePage);
+  app.delete('/api/admin/pages/:id', authenticate, requireAdmin, deletePage);
+  app.post('/api/admin/listings/moderate', authenticate, requireAdmin, updateListingStatus);
 
   const httpServer = createServer(app);
   return httpServer;

@@ -12,11 +12,10 @@ export const getCategories = async (req: Request, res: Response) => {
 
 export const getSubcategories = async (req: Request, res: Response) => {
   try {
-    const { categoryId } = req.params;
-    const subcategories = await Subcategory.find({ 
-      categoryId, 
-      isActive: true 
-    });
+    const categoryId = req.params.categoryId || (req.query.categoryId as string) || '';
+    const filter: any = { isActive: true };
+    if (categoryId) filter.categoryId = categoryId;
+    const subcategories = await Subcategory.find(filter);
     res.json(subcategories);
   } catch (error: any) {
     res.status(400).json({ message: error.message });
