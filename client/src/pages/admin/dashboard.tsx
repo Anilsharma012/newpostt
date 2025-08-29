@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Users, FileText, TrendingUp, Eye, CheckCircle, Clock, XCircle } from 'lucide-react';
 import { useLocation } from 'wouter';
+import { BackNav } from '@/components/BackNav';
 
 export default function AdminDashboard() {
   const { user } = useAuth();
