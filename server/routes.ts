@@ -20,7 +20,7 @@ import { dbHealth } from './controllers/health';
 import { listPackages, createPackage, updatePackage, deletePackage, listPriceRules, createPriceRule, updatePriceRule, deletePriceRule } from './controllers/packages';
 import { getCities, getAreas } from './controllers/locations';
 import { listPages, getPageBySlug, createPage, updatePage, deletePage } from './controllers/pages';
-import { openChat, getMessages } from './controllers/chats';
+import { openChat, getMessages, listThreads, sendMessage } from './controllers/chats';
 import { checkout, webhook } from './controllers/orders';
 import { listUsers, updateUser } from './controllers/adminUsers';
 import { listBanners, createBanner, updateBanner, deleteBanner } from './controllers/banners';
@@ -66,7 +66,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.put('/api/listings/:id', authenticate, updateListing);
   app.delete('/api/listings/:id', authenticate, deleteListing);
   app.post('/api/chats/open', authenticate, openChat);
+  app.get('/api/chats', authenticate, listThreads);
   app.get('/api/chats/:id/messages', authenticate, getMessages);
+  app.post('/api/chats/:id/messages', authenticate, sendMessage);
   app.post('/api/orders/checkout', authenticate, checkout);
   app.post('/api/orders/webhook', webhook);
 

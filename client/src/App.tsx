@@ -10,6 +10,7 @@ import Login from "@/pages/login";
 import Register from "@/pages/register";
 import Listings from "@/pages/listings";
 import ListingDetail from "@/pages/listing-detail";
+import ChatPage from "@/pages/chat";
 import PostAd from "@/pages/post-ad";
 import Profile from "@/pages/profile";
 import AdminDashboard from "@/pages/admin/dashboard";
@@ -36,6 +37,7 @@ function Router() {
       <Route path="/listing/:id" component={ListingDetail} />
       <Route path="/post-ad" component={PostAd} />
       <Route path="/profile" component={Profile} />
+      <Route path="/chat" component={ChatPage} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/subscription" component={Subscription} />
       <Route path="/admin/login" component={AdminLogin} />
