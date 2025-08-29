@@ -39,6 +39,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post('/api/auth/login', login);
   app.post('/api/auth/logout', logout);
   app.get('/api/auth/profile', authenticate, getProfile);
+  app.put('/api/auth/profile', authenticate, updateProfile);
   app.get('/api/auth/me', authenticate, getProfile);
 
   // Public routes
