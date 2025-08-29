@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { apiRequest, queryClient } from '@/lib/queryClient';
+import { BackNav } from '@/components/BackNav';
 
 export default function AdminCategories() {
   const { user } = useAuth();
@@ -43,6 +44,7 @@ export default function AdminCategories() {
       <div className="flex">
         <AdminSidebar />
         <main className="flex-1 p-8 max-w-7xl mx-auto">
+          <BackNav />
           <Card className="mb-6"><CardHeader><CardTitle>Categories</CardTitle></CardHeader><CardContent>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {(categories as any[]).map((c)=> (
