@@ -11,6 +11,7 @@ import { useToast } from '@/hooks/use-toast';
 import { apiRequest, queryClient } from '@/lib/queryClient';
 import { Eye, Edit, Trash2, Star, Clock, CheckCircle, XCircle } from 'lucide-react';
 import { useLocation } from 'wouter';
+import { BackNav } from '@/components/BackNav';
 
 export default function AdsManagement() {
   const { user } = useAuth();
@@ -104,6 +105,7 @@ export default function AdsManagement() {
         <main className="flex-1 p-8">
           <div className="max-w-7xl mx-auto">
             <div className="mb-8">
+              <BackNav />
               <h1 className="text-3xl font-bold text-foreground mb-2" data-testid="text-ads-management-title">
                 Ads Management
               </h1>
