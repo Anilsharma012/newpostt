@@ -9,6 +9,7 @@ import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Heart, MessageCircle, Flag, Eye, MapPin, Calendar, Tag } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { BottomNav } from '@/components/BottomNav';
 
 export default function ListingDetail() {
   const { id } = useParams<{ id: string }>();
