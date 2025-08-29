@@ -23,6 +23,7 @@ import AdminBanners from "@/pages/admin/banners";
 import AdminPromotions from "@/pages/admin/promotions";
 import AdminCategories from "@/pages/admin/categories";
 import Subscription from "@/pages/subscription";
+import NotificationsPage from "@/pages/notifications";
 import Dashboard from "@/pages/dashboard";
 import { AboutPage, ContactPage, FAQPage, BlogPage, PrivacyPage, TermsPage } from "@/pages/page";
 
