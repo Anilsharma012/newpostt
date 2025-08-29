@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { apiRequest, queryClient } from '@/lib/queryClient';
+import { BackNav } from '@/components/BackNav';
 
 export default function AdminPackages() {
   const { user } = useAuth();
@@ -32,6 +33,7 @@ export default function AdminPackages() {
       <div className="flex">
         <AdminSidebar />
         <main className="flex-1 p-8 max-w-7xl mx-auto">
+          <BackNav />
           <Card className="mb-6"><CardHeader><CardTitle>Packages</CardTitle></CardHeader><CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {(packages as any[]).map((p)=> (
