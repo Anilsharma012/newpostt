@@ -30,9 +30,19 @@ function Router() {
       <Route path="/listing/:id" component={ListingDetail} />
       <Route path="/post-ad" component={PostAd} />
       <Route path="/profile" component={Profile} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/subscription" component={Subscription} />
+      <Route path="/admin/login" component={AdminLogin} />
       <Route path="/admin/dashboard" component={AdminDashboard} />
       <Route path="/admin/ads" component={AdsManagement} />
       <Route path="/admin/users" component={UsersManagement} />
+      {/* CMS Pages */}
+      <Route path="/about" component={AboutPage} />
+      <Route path="/contact" component={ContactPage} />
+      <Route path="/faq" component={FAQPage} />
+      <Route path="/blog" component={BlogPage} />
+      <Route path="/privacy" component={PrivacyPage} />
+      <Route path="/terms" component={TermsPage} />
       {/* Category routes */}
       <Route path="/category/:slug" component={Listings} />
       {/* Fallback to 404 */}
