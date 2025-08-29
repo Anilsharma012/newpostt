@@ -20,7 +20,7 @@ import Subscription from "@/pages/subscription";
 import Dashboard from "@/pages/dashboard";
 import { AboutPage, ContactPage, FAQPage, BlogPage, PrivacyPage, TermsPage } from "@/pages/page";
 
-import React from 'react';
+import React, { Suspense } from 'react';
 function Router() {
   return (
     <Switch>
@@ -41,6 +41,7 @@ function Router() {
       <Route path="/admin/pages" component={React.lazy(() => import('@/pages/admin/pages'))} />
       <Route path="/admin/banners" component={React.lazy(() => import('@/pages/admin/banners'))} />
       <Route path="/admin/promotions" component={React.lazy(() => import('@/pages/admin/promotions'))} />
+      <Route path="/admin/categories" component={React.lazy(() => import('@/pages/admin/categories'))} />
       {/* CMS Pages */}
       <Route path="/about" component={AboutPage} />
       <Route path="/contact" component={ContactPage} />
@@ -62,7 +63,9 @@ function App() {
       <AuthProvider>
         <TooltipProvider>
           <Toaster />
-          <Router />
+          <Suspense fallback={<div className="p-8">Loading...</div>}>
+            <Router />
+          </Suspense>
         </TooltipProvider>
       </AuthProvider>
     </QueryClientProvider>
