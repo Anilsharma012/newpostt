@@ -257,6 +257,7 @@ export default function ListingDetail() {
         </div>
       </main>
 
+      <BottomNav />
       <Footer />
     </div>
   );
